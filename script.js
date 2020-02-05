@@ -10,8 +10,8 @@ $(document).ready(function () {
         event.preventDefault();
         newDate();
         let personDate = $('.name').val();
-        let dateName = $('<div> Hey ' + personDate + ', let\'s go on a date!</div>')
-        $('h1').append(dateName);
+        let dateName = $('<h1> Hey ' + personDate + ', let\'s go on a date!<h1>')
+        $('.output').append(dateName);
         // Here we are building the URL we need to query the database
         let city = $('.city').val(); // here we need to make the city the user input 
         console.log(city);
