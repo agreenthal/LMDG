@@ -12,11 +12,14 @@ $(document).ready(function () {
         // Here we are building the URL we need to query the database
         let city = $('.city').val(); // here we need to make the city the user input 
         console.log(city);
-        let cityInput = city.charAt(0).toUpperCase();
+        // String.city.capitalize = function() {
+        //     return city.charAt(0).toUpperCase() + city.slice(1);
+        // }
+        // capitalize();
         let APIKey = '9175113e8a32d9a37cbf34e734be2884' // link your specific api key
         // declare a variable containing the entire api, generate query, and key
         let urlBase = "http://api.openweathermap.org/data/2.5/"
-        let currentWeatherURL = urlBase + "weather?q=" + cityInput + "&appid=" + APIKey;
+        let currentWeatherURL = urlBase + "weather?q=" + city + "&appid=" + APIKey;
         console.log(currentWeatherURL);
         // declare var for latitiude and longitude, bc they will be needed for other api calls
         //use ajax to call your object
@@ -27,11 +30,10 @@ $(document).ready(function () {
             // declare a var that converts kelvin to farenheight 
             let faren = Math.floor(response.main.temp - 273.5) * 1.80 + 32
             //Create divs for city name, temp, wind, and humidity
-            let cityName = $('<div>' + cityInput + '</div>');
+            let cityName = $('<div>' + city + '</div>');
             let tempDiv = $('<div> Temperature: ' + faren + '</div>') // replace response with your farenheight var
-            let windDiv = $('<div> Wind Speed: ' + response.wind.speed + '</div>')
             let humDiv = $('<div> Humidity: ' + response.main.humidity + "%" + "</div>")
-            $('.temp').append(cityName, windDiv, humDiv, tempDiv);
+            $('.temp').append(cityName, tempDiv, humDiv);
         });
     });
 });
