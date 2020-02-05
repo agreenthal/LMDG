@@ -40,5 +40,14 @@ $(document).ready(function () {
             let humDiv = $('<div> Humidity: ' + response.main.humidity + "%" + "</div>")
             $('.temp').append(cityName, tempDiv, humDiv);
         });
+        function clearForm(){
+            document.getElementById("inputContainer").reset();
+        };
+        let clear = $("clear-btn")
+        clear.on('click', function(event){
+            event.preventDefault();
+            console.log()
+            clearForm();
+        });
     });
 });
