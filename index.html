@@ -35,7 +35,7 @@
                 </div> -->
                 <div class="form-group">
                     <label class="form-label" for="input-example-1">City:*</label>
-                    <input class="form-input" type="text" id="input-example-1" placeholder="Where you at?">
+                    <input class="form-input city" type="text" id="input-example-1" placeholder="Where you at?">
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="input-example-1">Cuisine:</label>
@@ -51,17 +51,21 @@
                     </select>
                 </div>
                 <div id="subclearbtns">
-                    <button class="btn btn-success">Create Your Date!</button>
+                    <button class="btn btn-success date-btn">Create Your Date!</button>
                     <button class="btn btn-primary">Easy Date!</button>
                     <button class="btn btn-error">Clear</button>
                 </div>
             </div>
             <div class="column col-sm-6">
-                <h1 id="outputHeader" style="display: none;">Have Fun!</h1>
+                <h1 class='output'id="output-header" style="display: none;">Have Fun!</h1>
             </div>
+            <div class='temp'></div>
         </div>
     </div>
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 
 </body>
 
