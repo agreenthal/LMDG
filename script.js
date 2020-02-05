@@ -3,7 +3,9 @@ $(document).ready(function () {
     let haveFun = document.getElementById('output-header')
     function newDate() {
         haveFun.style.display = "block";
+        dateContainer.style.display = "block";
     };
+    let dateContainer = document.getElementById("container2")
     let generate = $('.date-btn')
     // create an event listener that will populate the page with data from the API about the user's input
     generate.on('click', function (event) {
