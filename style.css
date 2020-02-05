@@ -5,21 +5,43 @@
 
 #outputHeader{
     text-align: center;
+    background-color: whitesmoke;
+    
 }
 
 #subclearbtns{
-
     margin-top: 140px;
     margin-bottom: 20px;
 
 }
 
+.navbar-center{
+    size: 100px;
+}
+
+#headerButtons{
+    color: white;
+}
+
 #headerDiv {
-    padding-top: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     padding-left: 20px;
     padding-right: 20px;
+    border: solid 3px pink;
+    background-color: palevioletred;
+    color: white;
 }
 #inputContainer{
     border-style: solid;
     border-color: pink;
+    background-color: whitesmoke;
+}
+
+#outputHeader{
+    border: solid 3px pink;
+}
+
+body{
+    background-image: url("https://cdn3.vectorstock.com/i/1000x1000/33/57/valentines-day-background-with-hearts-holiday-vector-23573357.jpg");
 }

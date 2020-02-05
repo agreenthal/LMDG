@@ -13,45 +13,36 @@
 
     <div id="headerDiv">
     <header class="navbar">
-        <section class="navbar-section">
-          <a href="..." class="navbar-brand mr-2">"Date"Generator</a>
-          <a href="..." class="btn btn-link">Home</a>
-          <a href="..." class="btn btn-link">GitHub</a>
-        </section>
-        <section class="navbar-section">
-          <div class="input-group input-inline">
-            <input class="form-input" type="text" placeholder="search">
-            <button class="btn btn-primary input-group-btn">Search</button>
-          </div>
+        <section class="navbar-section" id="headerButtons">
+          <a href="..." class="navbar-brand mr-2">"Date" Generator</a>
         </section>
       </header>
     </div>
 </head>
 
 <body>
-
     <div class="container" id="container1">
         <div class="columns">
-            <div class ="column col-6" id="inputContainer">
-                <h1>Input</h1>
+            <div class ="column col-sm-6" id="inputContainer">
+                <h1>Make Your Date!</h1>
                 <div class="form-group">
-                    <label class="form-label" for="input-example-1">Who are you going out with?</label>
+                    <label class="form-label" for="input-example-1">Who are you going out with?*</label>
                     <input class="form-input" type="text" id="input-example-1" placeholder="Name">
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="input-example-14">Date</label>
+                    <label class="form-label" for="input-example-14">Date:*</label>
                     <input class="form-input" type="date" id="input-example-14" placeholder="Enter Text">
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="input-example-1">What part of town?</label>
+                    <label class="form-label" for="input-example-1">City:*</label>
                     <input class="form-input" type="text" id="input-example-1" placeholder="Where you at?">
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="input-example-1">Cuisine</label>
+                    <label class="form-label" for="input-example-1">Cuisine:</label>
                     <input class="form-input" type="text" id="input-example-1" placeholder="What are you hungry for?">
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="input-example-1">Entertainment</label>
+                    <label class="form-label" for="input-example-1">Entertainment:</label>
                     <select class="form-select">
                         <option>Choose an option</option>
                         <option>Music</option>
@@ -60,13 +51,13 @@
                     </select>
                 </div>
                 <div id="subclearbtns">
-                    <button class="btn btn-success">Submit</button>
+                    <button class="btn btn-success">Create Your Date!</button>
+                    <button class="btn btn-primary">Easy Date!</button>
                     <button class="btn btn-error">Clear</button>
                 </div>
-
             </div>
-            <div class="column col-6">
-                <h1 id="outputHeader">Output</h1>
+            <div class="column col-sm-6">
+                <h1 id="outputHeader">Have Fun!</h1>
             </div>
         </div>
     </div>
