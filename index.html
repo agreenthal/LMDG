@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Date Generator</title>
+    <title>Last Minute Date Generator</title>
 
     <div id="headerDiv">
-    <header class="navbar">
+    <header class="navbar-center">
         <section class="navbar-section" id="headerButtons">
-          <a href="..." class="navbar-brand mr-2">"Date" Generator</a>
+          <p id="navTitle">Last Minute Date Generator</p>
         </section>
       </header>
     </div>
@@ -24,7 +24,7 @@
     <div class="container" id="container1">
         <div class="columns">
             <div class ="column col-lg-4 col-md-6 col-sm-12" id="inputContainer">
-                <h1>Make Your Date!</h1>
+                <h1 style="text-align: center;">Make Your Date!</h1>
                 <div class="form-group">
                     <label class="form-label" for="input-example-1">Who are you going out with?*</label>
                     <input class="form-input name" type="text" id="input-example-1" placeholder="Name">
@@ -54,10 +54,12 @@
             </div>
             <div class="column col-sm-6" id="container2" style="display: none;">
                 <h1 class='output' id="output-header"></h1>
+                <hr>
                 <div class='temp'></div>
             </div>
-            
         </div>
+        <br>
+        <br>
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
     <script type="text/javascript"

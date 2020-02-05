@@ -36,18 +36,9 @@ $(document).ready(function () {
             let faren = Math.floor(response.main.temp - 273.5) * 1.80 + 32
             //Create divs for city name, temp, wind, and humidity
             let cityName = $('<div>' + city + '</div>');
-            let tempDiv = $('<div> Temperature: ' + faren + '</div>') // replace response with your farenheight var
+            let tempDiv = $('<div> Temperature: ' + faren + "°F" + '</div>') // replace response with your farenheight var
             let humDiv = $('<div> Humidity: ' + response.main.humidity + "%" + "</div>")
             $('.temp').append(cityName, tempDiv, humDiv);
-        });
-        function clearForm(){
-            document.getElementById("inputContainer").reset();
-        };
-        let clear = $("clear-btn")
-        clear.on('click', function(event){
-            event.preventDefault();
-            console.log()
-            clearForm();
         });
     });
 });

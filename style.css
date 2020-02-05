@@ -1,5 +1,5 @@
 #container1 {
-    margin-top: 100px;
+    margin-top: 50px;
     width: 50%;
 }
 
@@ -10,36 +10,43 @@
 }
 
 #subclearbtns{
-    margin-top: 140px;
+    margin-top: 50px;
     margin-bottom: 20px;
 
 }
-
 
 #headerButtons{
     color: white;
 }
 
 #headerDiv {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
     border: solid 3px pink;
     background-color: palevioletred;
-    color: white;
 }
 #inputContainer{
     border-style: solid;
     border-color: pink;
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 #container2{
     border: solid 3px pink;
-    background-color: whitesmoke;
+    background-color: white;
+    margin-left: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
 }
 
 body{
-    background-image: url("https://cdn3.vectorstock.com/i/1000x1000/33/57/valentines-day-background-with-hearts-holiday-vector-23573357.jpg");
+    background-image: url("https://www.publicdomainpictures.net/pictures/250000/nahled/valentines-day-background-1516399499NLG.jpg");
 }
+
+#navTitle{
+    text-align: center;
+    font-size: 45px;
+    padding-top: 20px;
+    font-family: Marker Felt, fantasy;
+}
+
+
