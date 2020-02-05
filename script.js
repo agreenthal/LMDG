@@ -9,6 +9,9 @@ $(document).ready(function () {
     generate.on('click', function (event) {
         event.preventDefault();
         newDate();
+        let personDate = $('.name').val();
+        let dateName = $('<div> Hey ' + personDate + ', let\'s go on a date!</div>')
+        $('h1').append(dateName);
         // Here we are building the URL we need to query the database
         let city = $('.city').val(); // here we need to make the city the user input 
         console.log(city);
