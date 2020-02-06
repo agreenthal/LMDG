@@ -52,3 +52,7 @@ body{
 .capitalize {
     text-transform: capitalize;
 }
+
+.form-label, h1{
+    font-family: marker felt, fantasy;
+}
