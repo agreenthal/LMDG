@@ -62,13 +62,11 @@ $(document).ready(function () {
             //     headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
             // }).then(function (response) {
             //     console.log(response)
-            let entertainment = $('.entertainment').val();
-            if (entertainment = $('#event')) {
                 // event API
                 let eventAPIKey = 'KVbg12JNLMULu5Dll753u1MVTIcuZhL1' // link your specific api key
                 // declare a variable containing the entire api, generate query, and key
                 let eventurlBase = "https://app.ticketmaster.com/discovery/v2/events.json?"
-                let eventURL = eventurlBase + "&latlong=" + lat + "," + lon + "&apikey=" + eventAPIKey 
+                let eventURL = eventurlBase + "&latlong=" + lat + "," + lon + "&sort=random" + "&size=1" + "&apikey=" + eventAPIKey 
                 console.log(eventURL);
                 $.ajax({
                     url: eventURL,
@@ -77,14 +75,14 @@ $(document).ready(function () {
                     // headers: { "user-key": eventAPIKey, "Accept": "application/json" };
                 }).then(function (response) {
                     console.log(response)
-                    let eventDiv = $('<div> event: ' +  +  + '</div>')
+                    let eventDiv = $('<div> event: ' + response._embedded.events[0].name + '</div>')
+                    $('.event').append(eventDiv);
     
                 });
             // else if (entertainment = $('#event') {
             //     let eventAPIKey =
             //     let eventurlBase
             // }
-            };
         });
         // ENTERTAINMENT APIs
         $('#clear-btn').click(function () {
