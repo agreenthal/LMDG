@@ -72,7 +72,7 @@ $(document).ready(function () {
                 method: "GET",
             }).then(function (response) {
                 console.log(response)
-                let eventImageDiv =  $('<img src=' + response._embedded.events[6][1] + '/>');
+                let eventImageDiv =  $('<img src="' + response._embedded.events[0].images[0].url + '"/>');
                 console.log(eventImageDiv);
                 let eventDiv = $('<div>' + response._embedded.events[0].name + '</div>');
                 let eventLinkDiv = $('<div>' + response._embedded.events[0].url + '</div>');
