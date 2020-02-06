@@ -1,11 +1,11 @@
 // Always start with document ready
 $(document).ready(function () {
     let haveFun = document.getElementById('output-header')
+    let dateContainer = document.getElementById("container2")
     function newDate() {
         haveFun.style.display = "block";
         dateContainer.style.display = "block";
     };
-    let dateContainer = document.getElementById("container2")
     let generate = $('.date-btn')
     // create an event listener that will populate the page with data from the API about the user's input
     generate.on('click', function (event) {
@@ -72,13 +72,9 @@ $(document).ready(function () {
                 method: "GET",
             }).then(function (response) {
                 console.log(response)
-<<<<<<< HEAD
-                let eventImageDiv =  $('<img src=' + response._embedded.events[6][0][1] + '/>');
-=======
                 let eventHeader = $('<h2>Take Them Here</h2>')
                 let eventImageDiv =  $('<img src="' + response._embedded.events[0].images[0].url + '"/>');
                 eventImageDiv.addClass('event-images')
->>>>>>> 7b1ede9c9bfc89f6d583c4f9af2ab6bdc3333f0e
                 console.log(eventImageDiv);
                 let eventDiv = $('<a target=\'blank\' href=' + response._embedded.events[0].url + '>' + response._embedded.events[0].name + '</a>')
                 $('.event').append(eventHeader, eventImageDiv, eventDiv);
@@ -94,12 +90,15 @@ $(document).ready(function () {
         $('#date-food').val("")
         $('#date-entertainment').val("")
     });
-
-    let easyIMG = $('#easy-btn')
-    easyIMG.on("click", function(event){
+    });
+    let easyBtn = $('#easy-btn')
+    let easyDateImg = document.getElementById('easy-image');
+    
+    easyBtn.on("click", function(event){
         event.preventDefault();
-        newdate();
-        $(".easyImg").style.display = "block";
+        newDate();
+        easyDateImg.style.display = "block";
+    console.log(easyDateImg)
     });
-    });
+
 });

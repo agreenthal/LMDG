@@ -56,12 +56,13 @@ body{
 .form-label, h1{
     font-family: marker felt, fantasy;
 }
-<<<<<<< HEAD
 
-=======
 .event-images {
     height: 250px;
     width: 250px;
     display: block;
 }
->>>>>>> 7b1ede9c9bfc89f6d583c4f9af2ab6bdc3333f0e
+.easy-image-size {
+    height: 150px;
+    width: 150px;
+}
