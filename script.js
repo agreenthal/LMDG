@@ -49,7 +49,6 @@ $(document).ready(function () {
             state = response
             $('.temp').append(cityName, iconImage, tempDiv, humDiv);
             // // FOOD ZOMATO API 
-            let corsURL = 'https://cors-anywhere.herokuapp.com/'
             // let cuisines = $('.food').val();
             // let zomatoAPIKey = '39b38f787a78434f68f944a8c81c8440'
             // let zomatoURLBase = ' https://developers.zomato.com/api/v2.1/search?'
@@ -62,27 +61,31 @@ $(document).ready(function () {
             //     headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
             // }).then(function (response) {
             //     console.log(response)
-                // event API
-                let eventAPIKey = 'KVbg12JNLMULu5Dll753u1MVTIcuZhL1' // link your specific api key
-                // declare a variable containing the entire api, generate query, and key
-                let eventurlBase = "https://app.ticketmaster.com/discovery/v2/events.json?"
-                let eventURL = eventurlBase + "&latlong=" + lat + "," + lon + "&sort=random" + "&size=1" + "&apikey=" + eventAPIKey 
-                console.log(eventURL);
-                $.ajax({
-                    url: eventURL,
-                    method: "GET",
-                    headers: {"X-Requested-With: XMLHttpRequest X-AMC-Vendor-Key": eventAPIKey, "Accept": "application/json"}
-                    // headers: { "user-key": eventAPIKey, "Accept": "application/json" };
-                }).then(function (response) {
-                    console.log(response)
-                    let eventDiv = $('<div> event: ' + response._embedded.events[0].name + '</div>')
-                    $('.event').append(eventDiv);
-    
-                });
-            // else if (entertainment = $('#event') {
-            //     let eventAPIKey =
-            //     let eventurlBase
-            // }
+            // event API
+            let eventAPIKey = 'KVbg12JNLMULu5Dll753u1MVTIcuZhL1'; // link your specific api key
+            // declare a variable containing the entire api, generate query, and key
+            let eventurlBase = "https://app.ticketmaster.com/discovery/v2/events.json?";
+            let eventURL = eventurlBase + "&latlong=" + lat + "," + lon + "&sort=random" + "&size=1" + "&apikey=" + eventAPIKey;
+            console.log(eventURL);
+            $.ajax({
+                url: eventURL,
+                method: "GET",
+            }).then(function (response) {
+                console.log(response)
+                let eventImageDiv =  $('<img src=' + response._embedded.events[6][1] + '/>');
+                console.log(eventImageDiv);
+                let eventDiv = $('<div>' + response._embedded.events[0].name + '</div>');
+                let eventLinkDiv = $('<div>' + response._embedded.events[0].url + '</div>');
+               
+
+                console.log(response._embedded.events[0].name)
+
+                console.log(eventDiv);
+                $('.event').append(eventImageDiv, eventDiv, eventLinkDiv);
+
+            }).catch(function(error) {
+                debugger;
+            });
         });
         // ENTERTAINMENT APIs
         $('#clear-btn').click(function () {
