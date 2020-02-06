@@ -61,21 +61,30 @@ $(document).ready(function () {
             // }).then(function (response) {
             //     console.log(response)
 
-            // });
-            // ENTERTAINMENT APIs
-            // 
+        });
+        // ENTERTAINMENT APIs
+        let entertainment = $('.entertainment').val();
+        if (entertainment = $('#movie')) {
             // MOVIE API
             let movieAPIKey = 'bj5b6y5k5xgwhdyj8ma53r49' // link your specific api key
             // declare a variable containing the entire api, generate query, and key
             let movieurlBase = "http://api.fandango.com/v1/?op=moviesbylatlonsearch&"
             let movieURL = movieurlBase + "lat=" + lat + "&lon=" + lon + "&radius=10&apikey=" + movieAPIKey;
+            console.log(movieURL);
+            $.ajax({
+                url: movieURL,
+                method: "GET"
+            
+            }).then(function (response) {
+                let movieDiv = $('<div> Movie: ' +  +  + '</div>')
 
-
-        });
+            });
+        };
         $('#clear-btn').click(function () {
             $('#date-name').val("")
             $('#date-city').val("")
             $('#date-food').val("")
             $('#date-entertainment').val("")
-        })
+        });
     });
+});
