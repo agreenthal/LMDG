@@ -26,6 +26,7 @@ $(document).ready(function () {
         // declare a variable containing the entire api, generate query, and key
         let weatherurlBase = "http://api.openweathermap.org/data/2.5/"
         let weatherURL = weatherurlBase + "weather?q=" + city + "&appid=" + weatherAPIKey;
+        console.log(weatherURL);
         // declare var for latitiude and longitude, bc they will be needed for other api calls
         let lon;
         let lat;
@@ -44,29 +45,37 @@ $(document).ready(function () {
             // reassign values to these var, which will be plugged into the following api calls
             lon = response.coord.lon;
             lat = response.coord.lat;
+            state = response
             $('.temp').append(cityName, iconImage, tempDiv, humDiv);
-            // FOOD ZOMATO API 
-            let cuisines = $('.food').val();
-            let zomatoAPIKey = '39b38f787a78434f68f944a8c81c8440'
-            let zomatoURLBase = ' https://developers.zomato.com/api/v2.1/search?'
-            // https://developers.zomato.com/api/v2.1/cuisines?lat=0.04&lon=0.5
-            let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + '&cuisines=' + cuisines + '&sort=rating&order=asc&count=3';
-            console.log(zomatoURL)
-            $.ajax({
-                url: zomatoURL,
-                method: "GET",
-                headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
-            }).then(function (response) {
-                console.log(response)
-                
-            });
+            // // FOOD ZOMATO API 
+            // let cuisines = $('.food').val();
+            // let zomatoAPIKey = '39b38f787a78434f68f944a8c81c8440'
+            // let zomatoURLBase = ' https://developers.zomato.com/api/v2.1/search?'
+            // // https://developers.zomato.com/api/v2.1/cuisines?lat=0.04&lon=0.5
+            // let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + '&cuisines=' + cuisines + '&sort=rating&order=asc&count=3';
+            // console.log(zomatoURL)
+            // $.ajax({
+            //     url: zomatoURL,
+            //     method: "GET",
+            //     headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
+            // }).then(function (response) {
+            //     console.log(response)
+
+            // });
+            // ENTERTAINMENT APIs
+            // 
+            // MOVIE API
+            let movieAPIKey = 'bj5b6y5k5xgwhdyj8ma53r49' // link your specific api key
+            // declare a variable containing the entire api, generate query, and key
+            let movieurlBase = "http://api.fandango.com/v1/?op=moviesbylatlonsearch&"
+            let movieURL = movieurlBase + "lat=" + lat + "&lon=" + lon + "&radius=10&apikey=" + movieAPIKey;
+
+
         });
-​
+        $('#clear-btn').click(function () {
+            $('#date-name').val("")
+            $('#date-city').val("")
+            $('#date-food').val("")
+            $('#date-entertainment').val("")
+        })
     });
-    $('#clear-btn').click(function () {
-        $('#date-name').val("")
-        $('#date-city').val("")
-        $('#date-food').val("")
-        $('#date-entertainment').val("")
-    })
-});
