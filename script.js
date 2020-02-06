@@ -72,7 +72,7 @@ $(document).ready(function () {
                 method: "GET",
             }).then(function (response) {
                 console.log(response)
-                let eventImageDiv =  $('<img src=' + response._embedded.events[6][1] + '/>');
+                let eventImageDiv =  $('<img src=' + response._embedded.events[6][0][1] + '/>');
                 console.log(eventImageDiv);
                 let eventDiv = $('<div>' + response._embedded.events[0].name + '</div>');
                 let eventLinkDiv = $('<div>' + response._embedded.events[0].url + '</div>');
@@ -88,11 +88,18 @@ $(document).ready(function () {
             });
         });
         // ENTERTAINMENT APIs
-        $('#clear-btn').click(function () {
-            $('#date-name').val("")
-            $('#date-city').val("")
-            $('#date-food').val("")
-            $('#date-entertainment').val("")
-        });
+    $('#clear-btn').click(function () {
+        $('#date-name').val("")
+        $('#date-city').val("")
+        $('#date-food').val("")
+        $('#date-entertainment').val("")
+    });
+
+    let easyIMG = $('#easy-btn')
+    easyIMG.on("click", function(event){
+        event.preventDefault();
+        newdate();
+        $(".easyImg").style.display = "block";
+    });
     });
 });
