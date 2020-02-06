@@ -17,10 +17,6 @@ $(document).ready(function () {
         // Here we are building the URL we need to query the database
         let city = $('.city').val(); // here we need to make the city the user input 
         console.log(city);
-        // String.city.capitalize = function() {
-        //     return city.charAt(0).toUpperCase() + city.slice(1);
-        // }
-        // capitalize();
         let APIKey = '9175113e8a32d9a37cbf34e734be2884' // link your specific api key
         // declare a variable containing the entire api, generate query, and key
         let urlBase = "http://api.openweathermap.org/data/2.5/"
@@ -41,4 +37,11 @@ $(document).ready(function () {
             $('.temp').append(cityName, tempDiv, humDiv);
         });
     });
+    $('#clear-btn').click(function () {
+        $('#date-name').val("")
+        $('#date-city').val("")
+        $('#date-food').val("")
+        $('#date-entertainment').val("")
+    })
 });
+
