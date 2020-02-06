@@ -63,21 +63,27 @@ $(document).ready(function () {
             // }).then(function (response) {
             //     console.log(response)
             let entertainment = $('.entertainment').val();
-            if (entertainment = $('#movie')) {
-                // MOVIE API
-                let movieAPIKey = 'bj5b6y5k5xgwhdyj8ma53r49' // link your specific api key
+            if (entertainment = $('#event')) {
+                // event API
+                let eventAPIKey = 'KVbg12JNLMULu5Dll753u1MVTIcuZhL1' // link your specific api key
                 // declare a variable containing the entire api, generate query, and key
-                let movieurlBase = "http://api.fandango.com/v1/?op=moviesbylatlonsearch&"
-                let movieURL = corsURL + movieurlBase + "lat=" + lat + "&lon=" + lon + "&radius=10&apikey=" + movieAPIKey;
-                console.log(movieURL);
+                let eventurlBase = "https://app.ticketmaster.com/discovery/v2/events.json?"
+                let eventURL = eventurlBase + "&latlong=" + lat + "," + lon + "&apikey=" + eventAPIKey 
+                console.log(eventURL);
                 $.ajax({
-                    url: movieURL,
-                    method: "GET"
-                    headers: { "user-key": movieAPIKey, "Accept": "application/json" };
+                    url: eventURL,
+                    method: "GET",
+                    headers: {"X-Requested-With: XMLHttpRequest X-AMC-Vendor-Key": eventAPIKey, "Accept": "application/json"}
+                    // headers: { "user-key": eventAPIKey, "Accept": "application/json" };
                 }).then(function (response) {
-                    let movieDiv = $('<div> Movie: ' +  +  + '</div>')
+                    console.log(response)
+                    let eventDiv = $('<div> event: ' +  +  + '</div>')
     
                 });
+            // else if (entertainment = $('#event') {
+            //     let eventAPIKey =
+            //     let eventurlBase
+            // }
             };
         });
         // ENTERTAINMENT APIs
