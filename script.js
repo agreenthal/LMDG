@@ -15,6 +15,7 @@ $(document).ready(function () {
         newDate();
         let personDate = $('.name').val();
         let dateName = $('<h1> Hey ' + personDate + ', let\'s go on a date!<h1>')
+        dateName.addClass('capitalize') // this adds capitalization
         $('.output').append(dateName);
         // Here we are building the URL we need to query the database
         let city = $('.city').val(); // here we need to make the city the user input 
@@ -34,6 +35,7 @@ $(document).ready(function () {
             let faren = Math.floor(response.main.temp - 273.5) * 1.80 + 32
             //Create divs for city name, temp, wind, and humidity
             let cityName = $('<div>' + city + '</div>');
+            cityName.addClass('capitalize')
             let tempDiv = $('<div> Temperature: ' + faren + "°F" + '</div>') // replace response with your farenheight var
             let humDiv = $('<div> Humidity: ' + response.main.humidity + "%" + "</div>")
             $('.temp').append(cityName, tempDiv, humDiv);
