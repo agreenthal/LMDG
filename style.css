@@ -57,6 +57,7 @@ body{
     font-family: marker felt, fantasy;
 }
 .event-images {
-    height: 150px;
-    width: 150px;
+    height: 250px;
+    width: 250px;
+    display: block;
 }

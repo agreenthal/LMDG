@@ -72,11 +72,12 @@ $(document).ready(function () {
                 method: "GET",
             }).then(function (response) {
                 console.log(response)
+                let eventHeader = $('<h2>Take Them Here</h2>')
                 let eventImageDiv =  $('<img src="' + response._embedded.events[0].images[0].url + '"/>');
                 eventImageDiv.addClass('event-images')
                 console.log(eventImageDiv);
                 let eventDiv = $('<a target=\'blank\' href=' + response._embedded.events[0].url + '>' + response._embedded.events[0].name + '</a>')
-                $('.event').append(eventImageDiv, eventDiv);
+                $('.event').append(eventHeader, eventImageDiv, eventDiv);
 
             }).catch(function(error) {
                 debugger;
