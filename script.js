@@ -12,6 +12,7 @@ $(document).ready(function () {
         event.preventDefault();
         $('.output').html('')
         $('.temp').html('');
+        $('.event').html('');
         newDate();
         // NAME OUTPUT HEADER
         let personDate = $('.name').val();
@@ -48,6 +49,7 @@ $(document).ready(function () {
             state = response
             $('.temp').append(cityName, iconImage, tempDiv, humDiv);
             // // FOOD ZOMATO API 
+            let corsURL = 'https://cors-anywhere.herokuapp.com/'
             // let cuisines = $('.food').val();
             // let zomatoAPIKey = '39b38f787a78434f68f944a8c81c8440'
             // let zomatoURLBase = ' https://developers.zomato.com/api/v2.1/search?'
@@ -60,26 +62,25 @@ $(document).ready(function () {
             //     headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
             // }).then(function (response) {
             //     console.log(response)
-
+            let entertainment = $('.entertainment').val();
+            if (entertainment = $('#movie')) {
+                // MOVIE API
+                let movieAPIKey = 'bj5b6y5k5xgwhdyj8ma53r49' // link your specific api key
+                // declare a variable containing the entire api, generate query, and key
+                let movieurlBase = "http://api.fandango.com/v1/?op=moviesbylatlonsearch&"
+                let movieURL = corsURL + movieurlBase + "lat=" + lat + "&lon=" + lon + "&radius=10&apikey=" + movieAPIKey;
+                console.log(movieURL);
+                $.ajax({
+                    url: movieURL,
+                    method: "GET"
+                    headers: { "user-key": movieAPIKey, "Accept": "application/json" };
+                }).then(function (response) {
+                    let movieDiv = $('<div> Movie: ' +  +  + '</div>')
+    
+                });
+            };
         });
         // ENTERTAINMENT APIs
-        let entertainment = $('.entertainment').val();
-        if (entertainment = $('#movie')) {
-            // MOVIE API
-            let movieAPIKey = 'bj5b6y5k5xgwhdyj8ma53r49' // link your specific api key
-            // declare a variable containing the entire api, generate query, and key
-            let movieurlBase = "http://api.fandango.com/v1/?op=moviesbylatlonsearch&"
-            let movieURL = movieurlBase + "lat=" + lat + "&lon=" + lon + "&radius=10&apikey=" + movieAPIKey;
-            console.log(movieURL);
-            $.ajax({
-                url: movieURL,
-                method: "GET"
-            
-            }).then(function (response) {
-                let movieDiv = $('<div> Movie: ' +  +  + '</div>')
-
-            });
-        };
         $('#clear-btn').click(function () {
             $('#date-name').val("")
             $('#date-city').val("")
