@@ -65,23 +65,23 @@ $(document).ready(function () {
             let eventAPIKey = 'KVbg12JNLMULu5Dll753u1MVTIcuZhL1'; // link your specific api key
             // declare a variable containing the entire api, generate query, and key
             let eventurlBase = "https://app.ticketmaster.com/discovery/v2/events.json?";
-            let eventURL = eventurlBase + "&latlong=" + lat + "," + lon + "&sort=random" + "&size=1" + "&apikey=" + eventAPIKey;
+            let eventURL = eventurlBase + "&city=" + city + "&sort=random" + "&size=1" + "&apikey=" + eventAPIKey;
             console.log(eventURL);
             $.ajax({
                 url: eventURL,
                 method: "GET",
             }).then(function (response) {
                 console.log(response)
+<<<<<<< HEAD
                 let eventImageDiv =  $('<img src=' + response._embedded.events[6][0][1] + '/>');
+=======
+                let eventHeader = $('<h2>Take Them Here</h2>')
+                let eventImageDiv =  $('<img src="' + response._embedded.events[0].images[0].url + '"/>');
+                eventImageDiv.addClass('event-images')
+>>>>>>> 7b1ede9c9bfc89f6d583c4f9af2ab6bdc3333f0e
                 console.log(eventImageDiv);
-                let eventDiv = $('<div>' + response._embedded.events[0].name + '</div>');
-                let eventLinkDiv = $('<div>' + response._embedded.events[0].url + '</div>');
-               
-
-                console.log(response._embedded.events[0].name)
-
-                console.log(eventDiv);
-                $('.event').append(eventImageDiv, eventDiv, eventLinkDiv);
+                let eventDiv = $('<a target=\'blank\' href=' + response._embedded.events[0].url + '>' + response._embedded.events[0].name + '</a>')
+                $('.event').append(eventHeader, eventImageDiv, eventDiv);
 
             }).catch(function(error) {
                 debugger;
