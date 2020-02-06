@@ -10,6 +10,8 @@ $(document).ready(function () {
     // create an event listener that will populate the page with data from the API about the user's input
     generate.on('click', function (event) {
         event.preventDefault();
+        $('.output').html('')
+        $('.temp').html('');
         newDate();
         let personDate = $('.name').val();
         let dateName = $('<h1> Hey ' + personDate + ', let\'s go on a date!<h1>')
