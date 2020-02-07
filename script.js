@@ -92,13 +92,16 @@ $(document).ready(function () {
     });
     });
     let easyBtn = $('#easy-btn')
-    let easyDateImg = document.getElementById('easy-image');
+    //let easyDateImg = document.getElementById('easy-image');
+    let modal = document.getElementById('modal-id');
+    let modalClose = document.getElementById('exit');
     
     easyBtn.on("click", function(event){
         event.preventDefault();
-        newDate();
-        easyDateImg.style.display = "block";
-    console.log(easyDateImg)
+        $('#modal-id').addClass('active');
+        // newDate();
+        // easyDateImg.style.display = "block";
+        // console.log(easyDateImg)
     });
 
 });
