@@ -49,19 +49,27 @@ $(document).ready(function () {
             state = response
             $('.temp').append(cityName, iconImage, tempDiv, humDiv);
             // // FOOD ZOMATO API 
-            // let cuisines = $('.food').val();
-            // let zomatoAPIKey = '39b38f787a78434f68f944a8c81c8440'
-            // let zomatoURLBase = ' https://developers.zomato.com/api/v2.1/search?'
-            // // https://developers.zomato.com/api/v2.1/cuisines?lat=0.04&lon=0.5
-            // let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + '&cuisines=' + cuisines + '&sort=rating&order=asc&count=3';
-            // console.log(zomatoURL)
-            // $.ajax({
-            //     url: zomatoURL,
-            //     method: "GET",
-            //     headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
-            // }).then(function (response) {
-            //     console.log(response)
-            // event API
+            let cuisines = $('.food').val();
+            let zomatoAPIKey = '39b38f787a78434f68f944a8c81c8440'
+            let zomatoURLBase = ' https://developers.zomato.com/api/v2.1/search?'
+            let zomatoCuisines = "https://developers.zomato.com/api/v2.1/cuisines?lat=" + lat + "&lon=" + lon + "&apikey=" + zomatoAPIKey;
+            let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + '&cuisines=' + cuisines + '&sort=rating&order=asc&count=3'+ "&apikey=" + zomatoAPIKey;
+            console.log(zomatoCuisines);
+            $.ajax({
+                url: zomatoCuisines,
+                method: "GET",
+                headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
+            }).then(function (response) {
+                console.log(response)
+            $.ajax({
+                url: zomatoURL,
+                method: "GET",
+                headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
+            }).then(function (response) {
+                console.log(response)
+    
+            });
+        });
             let eventAPIKey = 'KVbg12JNLMULu5Dll753u1MVTIcuZhL1'; // link your specific api key
             // declare a variable containing the entire api, generate query, and key
             let eventurlBase = "https://app.ticketmaster.com/discovery/v2/events.json?";
