@@ -50,153 +50,62 @@ $(document).ready(function () {
             lon = response.coord.lon;
             lat = response.coord.lat;
             $('.temp').append(cityName, iconImage, tempDiv, humDiv);
-
             // // FOOD ZOMATO API 
             let cuisines = document.getElementById('food-select')
             let zomatoAPIKey = '39b38f787a78434f68f944a8c81c8440';
             let zomatoURLBase = ' https://developers.zomato.com/api/v2.1/search?';
             let foodDiv = $('.food');
-            console.log(cuisines.value)
-            let cuisineChoice = cuisines.value;
-            if (cuisineChoice === true) {
-                console.log(cuisineChoice + " has been clicked");
-                // let american = "1";
-                let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + '&cuisines=1&sort=rating&order=asc&count=1' + "&apikey=" + zomatoAPIKey;
+
+            let cuisineChoice = function (food) {
+                console.log(food);
+                let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + "&cuisines=" + food + "&sort=rating&order=asc&count=&apikey=" + zomatoAPIKey;
                 console.log(zomatoURL);
                 $.ajax({
                     url: zomatoURL,
                     method: "GET",
                     headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
-                }).then(function (response) {
-                    console.log(response.restaurants[0].restaurant.name);
-                    console.log(response.restaurants[0].restaurant.location.address);
-
-
-                    let americanNameDiv = $('<h2> Eat Here: </h2>' + '<div>' + response.restaurants[0].restaurant.name + '</div>');
-                    let americanLocDiv = $('<div>' + response.restaurants[0].restaurant.location.address + '</div>');
-                    foodDiv.append(americanNameDiv, americanLocDiv);
-
-
-                });
-            }
-            else if (cuisineChoice) {
-                console.log(cuisineChoice + " has been clicked");
-
-                // let chinese = "25";
-                let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + '&cuisines=25&sort=rating&order=asc&count=1' + "&apikey=" + zomatoAPIKey;
-                console.log(zomatoURL);
-                $.ajax({
-                    url: zomatoURL,
-                    method: "GET",
-                    headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
-                }).then(function (response) {
-                    console.log(response.restaurants[0].restaurant.name);
-                    console.log(response.restaurants[0].restaurant.location.address);
-
-
-                    let chineseNameDiv = $('<h2> Eat Here: </h2>' + '<div>' + response.restaurants[0].restaurant.name + '</div>');
-                    let chineseLocDiv = $('<div>' + response.restaurants[0].restaurant.location.address + '</div>');
-                    foodDiv.append(chineseNameDiv, chineseLocDiv);
-
-
-                });
-
-            }
-            else if (cuisineChoice) {
-                console.log(cuisineChoice + " has been clicked");
-                let foodDiv = $('.food');
-                // let indian = "148";
-                let zomatoAPIKey = '39b38f787a78434f68f944a8c81c8440';
-                let zomatoURLBase = ' https://developers.zomato.com/api/v2.1/search?';
-                let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + '&cuisines=148&sort=rating&order=asc&count=1' + "&apikey=" + zomatoAPIKey;
-                console.log(zomatoURL);
-                $.ajax({
-                    url: zomatoURL,
-                    method: "GET",
-                    headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
-                }).then(function (response) {
-                    let indianNameDiv = $('<h2> Eat Here: </h2>' + '<div>' + response.restaurants[0].restaurant.name + '</div>');
-                    let indianLocDiv = $('<div>' + response.restaurants[0].restaurant.location.address + '</div>');
-                    foodDiv.append(indianNameDiv, indianLocDiv);
-
-
-                });
-
-            }
-            else if (cuisines === 'Italian') {
-                let foodDiv = $('.food');
-                let italian = "55";
-                let zomatoAPIKey = '39b38f787a78434f68f944a8c81c8440';
-                let zomatoURLBase = ' https://developers.zomato.com/api/v2.1/search?';
-                let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + '&cuisines=' + italian + '&sort=rating&order=asc&count=1' + "&apikey=" + zomatoAPIKey;
-                console.log(zomatoURL);
-                $.ajax({
-                    url: zomatoURL,
-                    method: "GET",
-                    headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
-                }).then(function (response) {
-                    let italianNameDiv = $('<h2> Eat Here: </h2>' + '<div>' + response.restaurants[0].restaurant.name + '</div>');
-                    let italianLocDiv = $('<div>' + response.restaurants[0].restaurant.location.address + '</div>');
-                    foodDiv.append(italianNameDiv, italianLocDiv);
-
-
-                });
-
-            }
-            else if (cuisines === 'Mexican') {
-                let foodDiv = $('.food');
-                let mexican = "73";
-                let zomatoAPIKey = '39b38f787a78434f68f944a8c81c8440';
-                let zomatoURLBase = ' https://developers.zomato.com/api/v2.1/search?';
-                let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + '&cuisines=' + mexican + '&sort=rating&order=asc&count=1' + "&apikey=" + zomatoAPIKey;
-                console.log(zomatoURL);
-                $.ajax({
-                    url: zomatoURL,
-                    method: "GET",
-                    headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
-                }).then(function (response) {
-                    console.log(response.restaurants[0].restaurant.name);
-                    console.log(response.restaurants[0].restaurant.location.address);
-
-
-                    let mexicanNameDiv = $('<h2> Eat Here: </h2>' + '<div>' + response.restaurants[0].restaurant.name + '</div>');
-                    let mexicanLocDiv = $('<div>' + response.restaurants[0].restaurant.location.address + '</div>');
-                    foodDiv.append(mexicanNameDiv, mexicanLocDiv);
-
-
-                });
-
-            }
-            if ($("input[name='choice']:checked").val() === 'entYes') {
-                let eventAPIKey = 'KVbg12JNLMULu5Dll753u1MVTIcuZhL1'; // link your specific api key
-                // declare a variable containing the entire api, generate query, and key
-                let eventurlBase = "https://app.ticketmaster.com/discovery/v2/events.json?";
-                let randomEvent = Math.floor(Math.random() * 100);
-                let eventURL = eventurlBase + "&city=" + city + "&sort=random&size=" + randomEvent + "&apikey=" + eventAPIKey;
-                console.log(eventURL);
-                $.ajax({
-                    url: eventURL,
-                    method: "GET",
                 }).then(function (response) {
                     console.log(response)
-                    let eventHeader = $('<h2>Take Them Here</h2>')
-                    let eventImageDiv = $('<img src="' + response._embedded.events[0].images[0].url + '"/>');
-                    eventImageDiv.addClass('event-images')
-                    console.log(eventImageDiv);
-                    let eventDiv = $('<a target=\'blank\' href=' + response._embedded.events[0].url + '>' + response._embedded.events[0].name + '</a>')
-                    $('.event').append(eventHeader, eventImageDiv, eventDiv);
+                    console.log(response.restaurants[0].restaurant.name);
+                    console.log(response.restaurants[0].restaurant.location.address);
 
-                }).catch(function (error) {
-                    debugger;
                 });
-            }
-        });
-        $('#clear-btn').click(function () {
-            $('#date-name').val("")
-            $('#date-city').val("")
-            $('#date-food').val("")
-            $('#date-entertainment').val("")
-        });
-    });
 
+            };
+
+            cuisineChoice("1");
+            cuisineChoice("25");
+            cuisineChoice("148");
+        });
+
+        if ($("input[name='choice']:checked").val() === 'entYes') {
+            let eventAPIKey = 'KVbg12JNLMULu5Dll753u1MVTIcuZhL1'; // link your specific api key
+            // declare a variable containing the entire api, generate query, and key
+            let eventurlBase = "https://app.ticketmaster.com/discovery/v2/events.json?";
+            let randomEvent = Math.floor(Math.random() * 100);
+            let eventURL = eventurlBase + "&city=" + city + "&sort=random&size=" + randomEvent + "&apikey=" + eventAPIKey;
+            console.log(eventURL);
+            $.ajax({
+                url: eventURL,
+                method: "GET",
+            }).then(function (response) {
+                console.log(response)
+                let eventHeader = $('<h2>Take Them Here</h2>')
+                let eventImageDiv = $('<img src="' + response._embedded.events[0].images[0].url + '"/>');
+                eventImageDiv.addClass('event-images')
+                console.log(eventImageDiv);
+                let eventDiv = $('<a target=\'blank\' href=' + response._embedded.events[0].url + '>' + response._embedded.events[0].name + '</a>')
+                $('.event').append(eventHeader, eventImageDiv, eventDiv);
+            }).catch(function (error) {
+                debugger;
+            });
+        }
+    });
+    $('#clear-btn').click(function () {
+        $('#date-name').val("")
+        $('#date-city').val("")
+        $('#date-food').val("")
+        $('#date-entertainment').val("")
+    });
 });
+ 
