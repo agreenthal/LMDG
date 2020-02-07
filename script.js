@@ -73,7 +73,7 @@ $(document).ready(function () {
                 console.log(response.restaurants[0].restaurant.location.address);
 
 
-                let americanNameDiv = $('<div> Eat Here: ' + response.restaurants[0].restaurant.name + '</div>');
+                let americanNameDiv = $('<h2> Eat Here: </h2>' + '<div>' + response.restaurants[0].restaurant.name + '</div>');
                 let americanLocDiv = $('<div>' + response.restaurants[0].restaurant.location.address + '</div>');
                 foodDiv.append(americanNameDiv, americanLocDiv);
                 
