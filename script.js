@@ -15,6 +15,7 @@ $(document).ready(function () {
         $('.output').html('')
         $('.temp').html('');
         $('.event').html('');
+        $('.food').html('');
         newDate();
         // NAME OUTPUT HEADER
         let personDate = $('.name').val();
