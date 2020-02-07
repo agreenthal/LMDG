@@ -33,18 +33,29 @@
                     <label class="form-label" for="date-city">City:*</label>
                     <input class="form-input city" type="text" id="date-city" placeholder="Where you at?">
                 </div>
+
                 <div class="form-group">
                     <label class="form-label" for="date-food">Cuisine:</label>
-                    <input class="form-input" type="text" id="date-food" placeholder="What are you hungry for?">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="date-entertainment">Entertainment:</label>
-                    <select class="form-select entertainment" id="date-entertainment">
-                        <option>Choose an option</option>
-                        <option id ='event'>Event</option>
-                        <option id='none'>None</option>
+                    <select class="form-select">
+                      <option>Choose an option</option>
+                      <option>American</option>
+                      <option>Chinese</option>
+                      <option>Indian</option>
+                      <option>Italian</option>
+                      <option>Mexican</option>
                     </select>
+                  </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="date-city">Enterainment:</label>
+                  <label class="form-radio form-inline">
+                    <input type="radio" name="choice" checked=""><i class="form-icon"></i> Yes
+                  </label>
+                  <label class="form-radio form-inline">
+                    <input type="radio" name="choice"><i class="form-icon"></i> No
+                  </label>
                 </div>
+
                 <div id="subclearbtns">
                     <button class="btn btn-success date-btn">Create Your Date!</button>
                     <button class="btn btn-primary" id="easy-btn">Easy Date!</button>
@@ -74,7 +85,7 @@
           <div class="modal-body">
             <div class="Content">
               <!-- content here -->
-              <img class='easy-img' id='easy-image' style="display: block" src="trump.png">
+              <img class='easy-img' id='easy-image' style="display: block" src="https://i.imgflip.com/3og9i4.jpg">
             </div>
           </div>
           <div class="modal-footer">
