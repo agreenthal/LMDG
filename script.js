@@ -81,7 +81,7 @@ $(document).ready(function () {
             }
             else if (cuisineChoice) {
                 console.log(cuisineChoice + " has been clicked");
-              
+
                 // let chinese = "25";
                 let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + '&cuisines=25&sort=rating&order=asc&count=1' + "&apikey=" + zomatoAPIKey;
                 console.log(zomatoURL);
@@ -167,27 +167,29 @@ $(document).ready(function () {
                 });
 
             }
-            let eventAPIKey = 'KVbg12JNLMULu5Dll753u1MVTIcuZhL1'; // link your specific api key
-            // declare a variable containing the entire api, generate query, and key
-            let eventurlBase = "https://app.ticketmaster.com/discovery/v2/events.json?";
-            let randomEvent = Math.floor(Math.random() * 100);
-            let eventURL = eventurlBase + "&city=" + city + "&sort=random&size=" + randomEvent + "&apikey=" + eventAPIKey;
-            console.log(eventURL);
-            $.ajax({
-                url: eventURL,
-                method: "GET",
-            }).then(function (response) {
-                console.log(response)
-                let eventHeader = $('<h2>Take Them Here</h2>')
-                let eventImageDiv = $('<img src="' + response._embedded.events[0].images[0].url + '"/>');
-                eventImageDiv.addClass('event-images')
-                console.log(eventImageDiv);
-                let eventDiv = $('<a target=\'blank\' href=' + response._embedded.events[0].url + '>' + response._embedded.events[0].name + '</a>')
-                $('.event').append(eventHeader, eventImageDiv, eventDiv);
+            if ($("input[name='choice']:checked").val() === 'entYes') {
+                let eventAPIKey = 'KVbg12JNLMULu5Dll753u1MVTIcuZhL1'; // link your specific api key
+                // declare a variable containing the entire api, generate query, and key
+                let eventurlBase = "https://app.ticketmaster.com/discovery/v2/events.json?";
+                let randomEvent = Math.floor(Math.random() * 100);
+                let eventURL = eventurlBase + "&city=" + city + "&sort=random&size=" + randomEvent + "&apikey=" + eventAPIKey;
+                console.log(eventURL);
+                $.ajax({
+                    url: eventURL,
+                    method: "GET",
+                }).then(function (response) {
+                    console.log(response)
+                    let eventHeader = $('<h2>Take Them Here</h2>')
+                    let eventImageDiv = $('<img src="' + response._embedded.events[0].images[0].url + '"/>');
+                    eventImageDiv.addClass('event-images')
+                    console.log(eventImageDiv);
+                    let eventDiv = $('<a target=\'blank\' href=' + response._embedded.events[0].url + '>' + response._embedded.events[0].name + '</a>')
+                    $('.event').append(eventHeader, eventImageDiv, eventDiv);
 
-            }).catch(function (error) {
-                debugger;
-            });
+                }).catch(function (error) {
+                    debugger;
+                });
+            }
         });
         $('#clear-btn').click(function () {
             $('#date-name').val("")
