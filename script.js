@@ -51,35 +51,121 @@ $(document).ready(function () {
             $('.temp').append(cityName, iconImage, tempDiv, humDiv);
 
             // // FOOD ZOMATO API 
-            // let cuisines = $('.food').val();
-            // let american = $('#american');
-            // let chinese = $('#chinese');
-            // let indian = $('#italian');
-            // let italian = $('# italian');
-            // let mexican = $('#mexican');
-            // option conditonal 
-            let foodDiv = $('.food');
-            let american = "1";
+            let cuisines = document.getElementById('food-select')
             let zomatoAPIKey = '39b38f787a78434f68f944a8c81c8440';
             let zomatoURLBase = ' https://developers.zomato.com/api/v2.1/search?';
-            let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + '&cuisines=' + american + '&sort=rating&order=asc&count=1' + "&apikey=" + zomatoAPIKey;
-            console.log(zomatoURL);
-            $.ajax({
-                url: zomatoURL,
-                method: "GET",
-                headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
-            }).then(function (response) {
-                console.log(response.restaurants[0].restaurant.name);
-                console.log(response.restaurants[0].restaurant.location.address);
+            let foodDiv = $('.food');
+            console.log(cuisines.value)
+            let cuisineChoice = cuisines.value;
+            if (cuisineChoice === true) {
+                console.log(cuisineChoice + " has been clicked");
+                // let american = "1";
+                let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + '&cuisines=1&sort=rating&order=asc&count=1' + "&apikey=" + zomatoAPIKey;
+                console.log(zomatoURL);
+                $.ajax({
+                    url: zomatoURL,
+                    method: "GET",
+                    headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
+                }).then(function (response) {
+                    console.log(response.restaurants[0].restaurant.name);
+                    console.log(response.restaurants[0].restaurant.location.address);
 
 
-                let americanNameDiv = $('<h2> Eat Here: </h2>' + '<div>' + response.restaurants[0].restaurant.name + '</div>');
-                let americanLocDiv = $('<div>' + response.restaurants[0].restaurant.location.address + '</div>');
-                foodDiv.append(americanNameDiv, americanLocDiv);
-                
+                    let americanNameDiv = $('<h2> Eat Here: </h2>' + '<div>' + response.restaurants[0].restaurant.name + '</div>');
+                    let americanLocDiv = $('<div>' + response.restaurants[0].restaurant.location.address + '</div>');
+                    foodDiv.append(americanNameDiv, americanLocDiv);
 
-            });
 
+                });
+            }
+            else if (cuisineChoice) {
+                console.log(cuisineChoice + " has been clicked");
+              
+                // let chinese = "25";
+                let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + '&cuisines=25&sort=rating&order=asc&count=1' + "&apikey=" + zomatoAPIKey;
+                console.log(zomatoURL);
+                $.ajax({
+                    url: zomatoURL,
+                    method: "GET",
+                    headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
+                }).then(function (response) {
+                    console.log(response.restaurants[0].restaurant.name);
+                    console.log(response.restaurants[0].restaurant.location.address);
+
+
+                    let chineseNameDiv = $('<h2> Eat Here: </h2>' + '<div>' + response.restaurants[0].restaurant.name + '</div>');
+                    let chineseLocDiv = $('<div>' + response.restaurants[0].restaurant.location.address + '</div>');
+                    foodDiv.append(chineseNameDiv, chineseLocDiv);
+
+
+                });
+
+            }
+            else if (cuisineChoice) {
+                console.log(cuisineChoice + " has been clicked");
+                let foodDiv = $('.food');
+                // let indian = "148";
+                let zomatoAPIKey = '39b38f787a78434f68f944a8c81c8440';
+                let zomatoURLBase = ' https://developers.zomato.com/api/v2.1/search?';
+                let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + '&cuisines=148&sort=rating&order=asc&count=1' + "&apikey=" + zomatoAPIKey;
+                console.log(zomatoURL);
+                $.ajax({
+                    url: zomatoURL,
+                    method: "GET",
+                    headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
+                }).then(function (response) {
+                    let indianNameDiv = $('<h2> Eat Here: </h2>' + '<div>' + response.restaurants[0].restaurant.name + '</div>');
+                    let indianLocDiv = $('<div>' + response.restaurants[0].restaurant.location.address + '</div>');
+                    foodDiv.append(indianNameDiv, indianLocDiv);
+
+
+                });
+
+            }
+            else if (cuisines === 'Italian') {
+                let foodDiv = $('.food');
+                let italian = "55";
+                let zomatoAPIKey = '39b38f787a78434f68f944a8c81c8440';
+                let zomatoURLBase = ' https://developers.zomato.com/api/v2.1/search?';
+                let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + '&cuisines=' + italian + '&sort=rating&order=asc&count=1' + "&apikey=" + zomatoAPIKey;
+                console.log(zomatoURL);
+                $.ajax({
+                    url: zomatoURL,
+                    method: "GET",
+                    headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
+                }).then(function (response) {
+                    let italianNameDiv = $('<h2> Eat Here: </h2>' + '<div>' + response.restaurants[0].restaurant.name + '</div>');
+                    let italianLocDiv = $('<div>' + response.restaurants[0].restaurant.location.address + '</div>');
+                    foodDiv.append(italianNameDiv, italianLocDiv);
+
+
+                });
+
+            }
+            else if (cuisines === 'Mexican') {
+                let foodDiv = $('.food');
+                let mexican = "73";
+                let zomatoAPIKey = '39b38f787a78434f68f944a8c81c8440';
+                let zomatoURLBase = ' https://developers.zomato.com/api/v2.1/search?';
+                let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + '&cuisines=' + mexican + '&sort=rating&order=asc&count=1' + "&apikey=" + zomatoAPIKey;
+                console.log(zomatoURL);
+                $.ajax({
+                    url: zomatoURL,
+                    method: "GET",
+                    headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
+                }).then(function (response) {
+                    console.log(response.restaurants[0].restaurant.name);
+                    console.log(response.restaurants[0].restaurant.location.address);
+
+
+                    let mexicanNameDiv = $('<h2> Eat Here: </h2>' + '<div>' + response.restaurants[0].restaurant.name + '</div>');
+                    let mexicanLocDiv = $('<div>' + response.restaurants[0].restaurant.location.address + '</div>');
+                    foodDiv.append(mexicanNameDiv, mexicanLocDiv);
+
+
+                });
+
+            }
             let eventAPIKey = 'KVbg12JNLMULu5Dll753u1MVTIcuZhL1'; // link your specific api key
             // declare a variable containing the entire api, generate query, and key
             let eventurlBase = "https://app.ticketmaster.com/discovery/v2/events.json?";
@@ -108,18 +194,6 @@ $(document).ready(function () {
             $('#date-food').val("")
             $('#date-entertainment').val("")
         });
-    });
-    let easyBtn = $('#easy-btn')
-    //let easyDateImg = document.getElementById('easy-image');
-    let modal = document.getElementById('modal-id');
-    let modalClose = document.getElementById('exit');
-
-    easyBtn.on("click", function (event) {
-        event.preventDefault();
-        $('#modal-id').addClass('active');
-        // newDate();
-        // easyDateImg.style.display = "block";
-        // console.log(easyDateImg)
     });
 
 });

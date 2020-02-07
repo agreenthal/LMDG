@@ -36,8 +36,8 @@
 
                 <div class="form-group">
                     <label class="form-label" for="date-food">Cuisine:</label>
-                    <select class="form-select">
-                      <option class = food>Choose an option</option>
+                    <select id='food-select' class="form-select">
+                      <option>Choose an option</option>
                       <option id='american'>American</option>
                       <option id='chinese'>Chinese</option>
                       <option id='indian'>Indian</option>
@@ -58,7 +58,6 @@
 
                 <div id="subclearbtns">
                     <button class="btn btn-success date-btn">Create Your Date!</button>
-                    <button class="btn btn-primary" id="easy-btn">Easy Date!</button>
                     <button id="clear-btn" class="btn btn-error">Clear</button>
                 </div>
             </div>
@@ -67,7 +66,7 @@
                 <img class='easy-img' id='easy-image' style="display: none" src="https://i.imgflip.com/3of02t.jpg"></img>
                 <hr>
                 <div class='temp'></div>
-                <div class='food'></div>
+                <div class='food'>
                 <div class='event'></div>
             </div>
         </div>
