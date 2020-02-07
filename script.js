@@ -169,7 +169,8 @@ $(document).ready(function () {
             let eventAPIKey = 'KVbg12JNLMULu5Dll753u1MVTIcuZhL1'; // link your specific api key
             // declare a variable containing the entire api, generate query, and key
             let eventurlBase = "https://app.ticketmaster.com/discovery/v2/events.json?";
-            let eventURL = eventurlBase + "&city=" + city + "&sort=random&size=1" + "&apikey=" + eventAPIKey;
+            let randomEvent = Math.floor(Math.random() * 100);
+            let eventURL = eventurlBase + "&city=" + city + "&sort=random&size=" + randomEvent + "&apikey=" + eventAPIKey;
             console.log(eventURL);
             $.ajax({
                 url: eventURL,
@@ -187,7 +188,6 @@ $(document).ready(function () {
                 debugger;
             });
         });
-        // ENTERTAINMENT APIs
         $('#clear-btn').click(function () {
             $('#date-name').val("")
             $('#date-city').val("")
