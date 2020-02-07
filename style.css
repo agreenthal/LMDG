@@ -66,3 +66,7 @@ body{
     height: 150px;
     width: 150px;
 }
+
+.btn-clear {
+    float: right;
+}
