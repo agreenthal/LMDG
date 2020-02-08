@@ -41,7 +41,7 @@ $(document).ready(function () {
             // declare a var that converts kelvin to farenheight 
             let faren = Math.floor(response.main.temp - 273.5) * 1.80 + 32;
             //Create divs for city name, temp, wind, and humidity
-            let cityName = $('<div>' + city + '</div>');
+            let cityName = $('<h2> Current Weather for ' + city + '</h2>');
             cityName.addClass('capitalize');
             let iconImage = $('<img src=\"http://openweathermap.org/img/wn/' + response.weather[0].icon + '@2x.png\"/>');
             let tempDiv = $('<div> Temperature: ' + faren + "°F" + '</div>') // replace response with your farenheight var
@@ -68,9 +68,10 @@ $(document).ready(function () {
                 }).then(function (response) {
                     let randomIndex =  Math.floor(Math.random() * randomFood);
                     console.log(randomFood)
+                    let foodHeader = ('<h2> Eat Here </h2>')
                     let foodNameDiv = ('<div>' + response.restaurants[randomIndex].restaurant.name + '</div>');
                     let foodLocDiv = ('<div>' + response.restaurants[randomIndex].restaurant.location.address + '</div>');
-                    foodDiv.append(foodNameDiv, foodLocDiv);
+                    foodDiv.append(foodHeader, foodNameDiv, foodLocDiv);
 
                 });
 
@@ -91,7 +92,7 @@ $(document).ready(function () {
                 method: "GET",
             }).then(function (response) {
                 console.log(response)
-                let eventHeader = $('<h2>Take Them Here</h2>')
+                let eventHeader = $('<h2> Event: </h2>')
                 let eventImageDiv = $('<img src="' + response._embedded.events[0].images[0].url + '"/>');
                 eventImageDiv.addClass('event-images')
                 console.log(eventImageDiv);
