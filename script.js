@@ -65,17 +65,15 @@ $(document).ready(function () {
                     method: "GET",
                     headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
                 }).then(function (response) {
-                    console.log(response)
-                    console.log(response.restaurants[0].restaurant.name);
-                    console.log(response.restaurants[0].restaurant.location.address);
+                    let foodNameDiv = ('<div>' + response.restaurants[0].restaurant.name + '</div>');
+                    let foodLocDiv = ('<div>' + response.restaurants[0].restaurant.location.address + '</div>');
+                    foodDiv.append(foodNameDiv, foodLocDiv);
 
                 });
 
             };
 
-            cuisineChoice("1");
-            cuisineChoice("25");
-            cuisineChoice("148");
+            cuisineChoice(cuisines.value);
         });
 
         if ($("input[name='choice']:checked").val() === 'entYes') {
