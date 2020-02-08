@@ -54,19 +54,22 @@ $(document).ready(function () {
             let cuisines = document.getElementById('food-select')
             let zomatoAPIKey = '39b38f787a78434f68f944a8c81c8440';
             let zomatoURLBase = ' https://developers.zomato.com/api/v2.1/search?';
+            let randomFood =  Math.floor(Math.random() * 50);
             let foodDiv = $('.food');
 
             let cuisineChoice = function (food) {
                 console.log(food);
-                let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + "&cuisines=" + food + "&sort=rating&order=asc&count=&apikey=" + zomatoAPIKey;
+                let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + "&cuisines=" + food + "&sort=rating&order=asc&count=" + randomFood +"&apikey=" + zomatoAPIKey;
                 console.log(zomatoURL);
                 $.ajax({
                     url: zomatoURL,
                     method: "GET",
                     headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
                 }).then(function (response) {
-                    let foodNameDiv = ('<div>' + response.restaurants[0].restaurant.name + '</div>');
-                    let foodLocDiv = ('<div>' + response.restaurants[0].restaurant.location.address + '</div>');
+                    let randomIndex =  Math.floor(Math.random() * randomFood);
+                    console.log(randomFood)
+                    let foodNameDiv = ('<div>' + response.restaurants[randomIndex].restaurant.name + '</div>');
+                    let foodLocDiv = ('<div>' + response.restaurants[randomIndex].restaurant.location.address + '</div>');
                     foodDiv.append(foodNameDiv, foodLocDiv);
 
                 });
