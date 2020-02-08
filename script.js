@@ -102,14 +102,17 @@ $(document).ready(function () {
                 debugger;
             });
         }
+    // share date button creation
     function shareDate () {
         $('.share').style.display = 'block';
     }
     shareDate();
+    // share date functionality
     $('.share').on('click', function (){
 
     });
     });
+    // clear button functionality 
     $('#clear-btn').on('click',function () {
         $('#date-name').val("")
         $('#date-city').val("")
