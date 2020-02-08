@@ -19,16 +19,16 @@ $(document).ready(function () {
         newDate();
         // NAME OUTPUT HEADER
         let personDate = $('.name').val();
-        let dateName = $('<h1> Hey ' + personDate + ', let\'s go on a date!<h1>')
-        dateName.addClass('capitalize') // this adds capitalization
+        let dateName = $('<h1> Hey ' + personDate + ', let\'s go on a date!<h1>');
+        dateName.addClass('capitalize'); // this adds capitalization
         $('.output').append(dateName);
         // CITY VALUE 
         let city = $('.city').val(); // here we need to make the city the user input 
         console.log(city);
         // WEATHER API
-        let weatherAPIKey = '9175113e8a32d9a37cbf34e734be2884' // link your specific api key
+        let weatherAPIKey = '9175113e8a32d9a37cbf34e734be2884'; // link your specific api key
         // declare a variable containing the entire api, generate query, and key
-        let weatherurlBase = "http://api.openweathermap.org/data/2.5/"
+        let weatherurlBase = "http://api.openweathermap.org/data/2.5/";
         let weatherURL = weatherurlBase + "weather?q=" + city + "&appid=" + weatherAPIKey;
         console.log(weatherURL);
         // declare var for latitiude and longitude, bc they will be needed for other api calls
@@ -51,7 +51,7 @@ $(document).ready(function () {
             lat = response.coord.lat;
             $('.temp').append(cityName, iconImage, tempDiv, humDiv);
             // // FOOD ZOMATO API 
-            let cuisines = document.getElementById('food-select')
+            let cuisines = document.getElementById('food-select');;
             let zomatoAPIKey = '39b38f787a78434f68f944a8c81c8440';
             let zomatoURLBase = ' https://developers.zomato.com/api/v2.1/search?';
             let randomFood =  Math.floor(Math.random() * 50);
@@ -67,12 +67,12 @@ $(document).ready(function () {
                     headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
                 }).then(function (response) {
                     let randomIndex =  Math.floor(Math.random() * randomFood);
-                    console.log(randomFood)
-                    let foodHeader = ('<h2> Eat Here </h2>')
+                    console.log(randomFood);
+                    let foodHeader = ('<h2> Eat Here </h2>');
                     let foodNameDiv = ('<div>' + response.restaurants[randomIndex].restaurant.name + '</div>');
                     let foodLocDiv = ('<div>' + response.restaurants[randomIndex].restaurant.location.address + '</div>');
-                    foodDiv.append(foodHeader, foodNameDiv, foodLocDiv);
-
+                    foodDiv.append(foodHeader, foodNameDiv, foodLocDiv);;;
+;
                 });
 
             };
@@ -94,16 +94,23 @@ $(document).ready(function () {
                 console.log(response)
                 let eventHeader = $('<h2> Event: </h2>')
                 let eventImageDiv = $('<img src="' + response._embedded.events[0].images[0].url + '"/>');
-                eventImageDiv.addClass('event-images')
+                eventImageDiv.addClass('event-images');
                 console.log(eventImageDiv);
-                let eventDiv = $('<a target=\'blank\' href=' + response._embedded.events[0].url + '>' + response._embedded.events[0].name + '</a>')
+                let eventDiv = $('<a target=\'blank\' href=' + response._embedded.events[0].url + '>' + response._embedded.events[0].name + '</a>');;
                 $('.event').append(eventHeader, eventImageDiv, eventDiv);
             }).catch(function (error) {
                 debugger;
             });
         }
+    function shareDate () {
+        $('.share').style.display = 'block';
+    }
+    shareDate();
+    $('.share').on('click', function (){
+
     });
-    $('#clear-btn').click(function () {
+    });
+    $('#clear-btn').on('click',function () {
         $('#date-name').val("")
         $('#date-city').val("")
         $('#date-food').val("")
