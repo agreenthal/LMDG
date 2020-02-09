@@ -19,7 +19,8 @@ $(document).ready(function () {
         newDate();
         // NAME OUTPUT HEADER
         let personDate = $('.name').val();
-        let dateName = $('<h1> Hey ' + personDate + ', let\'s go on a date!<h1>');
+        let goOnDate = 'Hey ' + personDate + ', let\'s go on a date!'
+        let dateName = $('<h1>' + goOnDate + '<h1>');
         dateName.addClass('capitalize'); // this adds capitalization
         $('.output').append(dateName);
         // CITY VALUE 
@@ -54,32 +55,32 @@ $(document).ready(function () {
             let cuisines = document.getElementById('food-select');;
             let zomatoAPIKey = '39b38f787a78434f68f944a8c81c8440';
             let zomatoURLBase = ' https://developers.zomato.com/api/v2.1/search?';
-            let randomFood =  Math.floor(Math.random() * 50);
+            let randomFood = Math.floor(Math.random() * 50);
             let foodDiv = $('.food');
 
             let cuisineChoice = function (food) {
                 console.log(food);
-                let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + "&cuisines=" + food + "&sort=rating&order=asc&count=" + randomFood +"&apikey=" + zomatoAPIKey;
+                let zomatoURL = zomatoURLBase + "lat=" + lat + "&lon=" + lon + "&cuisines=" + food + "&sort=rating&order=asc&count=" + randomFood + "&apikey=" + zomatoAPIKey;
                 console.log(zomatoURL);
                 $.ajax({
                     url: zomatoURL,
                     method: "GET",
                     headers: { "user-key": zomatoAPIKey, "Accept": "application/json" }
                 }).then(function (response) {
-                    let randomIndex =  Math.floor(Math.random() * randomFood);
+                    let randomIndex = Math.floor(Math.random() * randomFood);
                     console.log(randomFood);
                     let foodHeader = ('<h2> Eat Here </h2>');
                     let foodNameDiv = ('<div>' + response.restaurants[randomIndex].restaurant.name + '</div>');
                     let foodLocDiv = ('<div>' + response.restaurants[randomIndex].restaurant.location.address + '</div>');
                     foodDiv.append(foodHeader, foodNameDiv, foodLocDiv);;;
-;
+                    ;
                 });
 
             };
 
             cuisineChoice(cuisines.value);
         });
-
+        // EVENT API
         if ($("input[name='choice']:checked").val() === 'entYes') {
             let eventAPIKey = 'KVbg12JNLMULu5Dll753u1MVTIcuZhL1'; // link your specific api key
             // declare a variable containing the entire api, generate query, and key
@@ -102,21 +103,21 @@ $(document).ready(function () {
                 debugger;
             });
         }
-    // share date button creation
-    function shareDate () {
-        $('.share').style.display = 'block';
-    }
-    shareDate();
-    // share date functionality
-    $('.share').on('click', function (){
-    });
+        // share date button creation
+        function shareDate() {
+            $('.share').css('display', 'block');
+            $('.share').attr('href', 'mailto:?subject =' + goOnDate + '&body =' + cityName)
+        }
+        shareDate();
+        // share date functionality
+        $('.share').on('click', function () {
+        });
     });
     // clear button functionality 
-    $('#clear-btn').on('click',function () {
+    $('#clear-btn').on('click', function () {
         $('#date-name').val("")
         $('#date-city').val("")
         $('#date-food').val("")
         $('#date-entertainment').val("")
     });
 });
- 
