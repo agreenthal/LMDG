@@ -1,7 +1,7 @@
 // Always start with document ready
 $(document).ready(function () {
     let time = moment();
-    let todaysDate = time.format('YYYY-MM-DD');
+    let todaysDate = time.format('YYYY-MM-DDTHH:mm:ssZ');
     let haveFun = document.getElementById('output-header')
     let dateContainer = document.getElementById("container2")
     function newDate() {
@@ -85,14 +85,14 @@ $(document).ready(function () {
             // declare a variable containing the entire api, generate query, and key
             let eventurlBase = "https://app.ticketmaster.com/discovery/v2/events.json?";
             let randomEvent = Math.floor(Math.random() * 100);
-            let eventURL = eventurlBase + "&city=" + city + "&sort=random&size=" + randomEvent + "&apikey=" + eventAPIKey;
+            let eventURL = eventurlBase + "&city=" + city + "&sort=date,asc&size=" + randomEvent + "&startDateTime=" + todaysDate + "&apikey=" + eventAPIKey;
             console.log(eventURL);
             $.ajax({
                 url: eventURL,
                 method: "GET",
             }).then(function (response) {
                 console.log(response)
-                let eventHeader = $('<h2> Event: </h2>')
+                let eventHeader = $('<h2> Event </h2>')
                 let eventImageDiv = $('<img src="' + response._embedded.events[0].images[0].url + '"/>');
                 eventImageDiv.addClass('event-images');
                 console.log(eventImageDiv);
