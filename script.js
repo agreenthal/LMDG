@@ -72,8 +72,7 @@ $(document).ready(function () {
                     let foodHeader = ('<h2> Eat Here </h2>');
                     let foodNameDiv = ('<div>' + response.restaurants[randomIndex].restaurant.name + '</div>');
                     let foodLocDiv = ('<div>' + response.restaurants[randomIndex].restaurant.location.address + '</div>');
-                    foodDiv.append(foodHeader, foodNameDiv, foodLocDiv);;;
-                    ;
+                    foodDiv.append(foodHeader, foodNameDiv, foodLocDiv);
                 });
 
             };
