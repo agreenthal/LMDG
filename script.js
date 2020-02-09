@@ -109,7 +109,6 @@ $(document).ready(function () {
     shareDate();
     // share date functionality
     $('.share').on('click', function (){
-
     });
     });
     // clear button functionality 
