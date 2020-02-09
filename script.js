@@ -26,6 +26,17 @@ $(document).ready(function () {
         // CITY VALUE 
         let city = $('.city').val(); // here we need to make the city the user input 
         console.log(city);
+
+        if(!personDate){
+            $('#namespan').text('please input a name!')
+        }
+        if(!city){
+            $('#cityspan').text('please input a city!')
+        }
+
+        if(personDate&&city){
+              newDate(); 
+        }
         // WEATHER API
         let weatherAPIKey = '9175113e8a32d9a37cbf34e734be2884'; // link your specific api key
         // declare a variable containing the entire api, generate query, and key
@@ -40,7 +51,7 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             // declare a var that converts kelvin to farenheight 
-            let faren = Math.floor(response.main.temp - 273.5) * 1.80 + 32;
+            let faren = Math.floor((response.main.temp - 273.5) * 1.80 + 32);
             //Create divs for city name, temp, wind, and humidity
             let cityName = $('<h2> Current Weather for ' + city + '</h2>');
             cityName.addClass('capitalize');
