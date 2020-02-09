@@ -19,7 +19,7 @@ $(document).ready(function () {
         newDate();
         // NAME OUTPUT HEADER
         let personDate = $('.name').val();
-        let goOnDate = 'Hey ' + personDate + ', let\'s go on a date!'
+        let goOnDate = 'Hey ' + personDate + ', Let\'s Go On A Date!'
         let dateName = $('<h1>' + goOnDate + '<h1>');
         dateName.addClass('capitalize'); // this adds capitalization
         $('.output').append(dateName);
@@ -106,12 +106,10 @@ $(document).ready(function () {
         // share date button creation
         function shareDate() {
             $('.share').css('display', 'block');
-            $('.share').attr('href', 'mailto:?subject =' + goOnDate + '&body =' + cityName)
+            goOnDate.addClass('capitalize');
+            $('.share').attr('href', 'mailto:?subject=' + goOnDate + '&body=\"\"')
         }
-        shareDate();
-        // share date functionality
-        $('.share').on('click', function () {
-        });
+        shareDate(); // share date call/funtionality 
     });
     // clear button functionality 
     $('#clear-btn').on('click', function () {
