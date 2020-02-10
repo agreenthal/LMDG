@@ -16,7 +16,7 @@ $(document).ready(function () {
         $('.temp').html('');
         $('.event').html('');
         $('.food').html('');
-        newDate();
+        // newDate();
         // NAME OUTPUT HEADER
         let personDate = $('.name').val();
         let goOnDate = 'Hey ' + personDate + ', Let\'s Go On A Date!'
@@ -24,9 +24,9 @@ $(document).ready(function () {
         dateName.addClass('capitalize'); // this adds capitalization
         $('.output').append(dateName);
         // CITY VALUE 
-        let city = $('.city').val(); // here we need to make the city the user input 
-        console.log(city);
-
+        let city = $('.city').val().trim(); // here we need to make the city the user input 
+        console.log(city); 
+        
         if(!personDate){
             $('#namespan').text('please input a name!')
         }
