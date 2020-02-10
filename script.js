@@ -113,13 +113,6 @@ $(document).ready(function () {
                 debugger;
             });
         }
-        // share date button creation
-        function shareDate() {
-            $('.share').css('display', 'block');
-            goOnDate.addClass('capitalize');
-            $('.share').attr('href', 'mailto:?subject=' + goOnDate + '&body=\"\"')
-        }
-        shareDate(); // share date call/funtionality 
     });
     // clear button functionality 
     $('#clear-btn').on('click', function () {
