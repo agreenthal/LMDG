@@ -1,0 +1,79 @@
+#container1 {
+    margin-top: 50px;
+    width: 50%;
+}
+
+#outputHeader{
+    text-align: center;
+    background-color: whitesmoke;
+    
+}
+
+#subclearbtns{
+    margin-top: 50px;
+    margin-bottom: 20px;
+
+}
+
+#headerButtons{
+    color: white;
+}
+
+#headerDiv {
+    border: solid 3px pink;
+    background-color: palevioletred;
+}
+#inputContainer{
+    border-style: solid;
+    border-color: pink;
+    background-color: white;
+}
+
+#container2{
+    border: solid 3px pink;
+    background-color: white;
+    margin-left: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+}
+
+body{
+    background-image: url("https://www.publicdomainpictures.net/pictures/250000/nahled/valentines-day-background-1516399499NLG.jpg");
+}
+
+#navTitle{
+    text-align: center;
+    font-size: 45px;
+    padding-top: 20px;
+    font-family: Marker Felt, fantasy;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.form-label, h1{
+    font-family: marker felt, fantasy;
+}
+
+.event-images {
+    width:100%;
+    height:auto;
+    display: block;
+}
+.easy-image-size {
+    height: 100px;
+    width: 100px;
+}
+
+.btn-clear {
+    float: right;
+}
+
+@media only screen and (max-width:840px){
+#container2 {
+    margin-left: 0;
+    margin-right:0;
+}
+}
