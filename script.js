@@ -16,7 +16,7 @@ $(document).ready(function () {
         $('.temp').html('');
         $('.event').html('');
         $('.food').html('');
-        // newDate();
+        //newDate();
         // NAME OUTPUT HEADER
         let personDate = $('.name').val();
         let goOnDate = 'Hey ' + personDate + ', Let\'s Go On A Date!'
