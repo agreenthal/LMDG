@@ -40,7 +40,7 @@ $(document).ready(function () {
         // WEATHER API
         let weatherAPIKey = '9175113e8a32d9a37cbf34e734be2884'; // link your specific api key
         // declare a variable containing the entire api, generate query, and key
-        let weatherurlBase = "http://api.openweathermap.org/data/2.5/";
+        let weatherurlBase = "https://api.openweathermap.org/data/2.5/";
         let weatherURL = weatherurlBase + "weather?q=" + city + "&appid=" + weatherAPIKey;
         console.log(weatherURL);
         // declare var for latitiude and longitude, bc they will be needed for other api calls
@@ -55,7 +55,7 @@ $(document).ready(function () {
             //Create divs for city name, temp, wind, and humidity
             let cityName = $('<h2> Current Weather for ' + city + '</h2>');
             cityName.addClass('capitalize');
-            let iconImage = $('<img src=\"http://openweathermap.org/img/wn/' + response.weather[0].icon + '@2x.png\"/>');
+            let iconImage = $('<img src=\"https://openweathermap.org/img/wn/' + response.weather[0].icon + '@2x.png\"/>');
             let tempDiv = $('<div> Temperature: ' + faren + "°F" + '</div>') // replace response with your farenheight var
             let humDiv = $('<div> Humidity: ' + response.main.humidity + "%" + "</div>");
             // reassign values to these var, which will be plugged into the following api calls
