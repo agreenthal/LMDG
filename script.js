@@ -40,7 +40,7 @@ $(document).ready(function () {
         // WEATHER API
         let weatherAPIKey = '9175113e8a32d9a37cbf34e734be2884'; // link your specific api key
         // declare a variable containing the entire api, generate query, and key
-        let weatherurlBase = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/";
+        let weatherurlBase = "https://api.openweathermap.org/data/2.5/";
         let weatherURL = weatherurlBase + "weather?q=" + city + "&appid=" + weatherAPIKey;
         console.log(weatherURL);
         // declare var for latitiude and longitude, bc they will be needed for other api calls
